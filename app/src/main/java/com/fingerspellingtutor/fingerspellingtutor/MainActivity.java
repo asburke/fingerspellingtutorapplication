@@ -50,30 +50,16 @@ public class MainActivity extends FragmentActivity {
 
     CallbackManager callbackManager;
 
-   // Button startgameButton = (Button) findViewById(R.id.startgame_button);
-
-   // @Bind(R.id.login_button) LoginButton loginButton;
-
-    /*
-    @Bind(view id)
-    Class nameOfObject
-    */
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-
-
         setContentView(R.layout.activity_login_fb);
-       // ButterKnife.bind(this);
-
-        // Old shitty way of referencing view
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
 
         callbackManager = CallbackManager.Factory.create();
-        //loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 
             @Override
@@ -84,13 +70,11 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCancel() {
                 // App code
-
             }
 
             @Override
             public void onError(FacebookException error) {
                 // App code
-
             }
         });
     }
@@ -102,7 +86,6 @@ public class MainActivity extends FragmentActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
 
         setContentView(R.layout.activity_dashboard);
-       // ButterKnife.bind(this);
         Button startgameButton = (Button) findViewById(R.id.startgame_button);
 
     }

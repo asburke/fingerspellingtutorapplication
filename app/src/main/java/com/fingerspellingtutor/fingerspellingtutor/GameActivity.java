@@ -64,4 +64,10 @@ public class GameActivity extends FragmentActivity {
 
     }
 
+    public void startLevelTwo (View view)
+    {
+        Button leveltwocompleteButton = (Button) findViewById(R.id.leveltwocomplete_button);
+        setContentView(R.layout.activity_leveltwo);
+    }
+
 }
