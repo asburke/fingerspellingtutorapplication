@@ -1,4 +1,5 @@
 
+
 package com.fingerspellingtutor.fingerspellingtutor;
 
 import android.animation.Animator;
@@ -43,10 +44,13 @@ import java.util.List;
 //import butterknife.Bind;
 //import butterknife.ButterKnife;
 
+
+
 /**
  * Created by alyssaburke on 10/8/15.
  */
-public class MainActivity extends FragmentActivity {
+
+public class DashboardActivity extends FragmentActivity {
 
     CallbackManager callbackManager;
 
@@ -55,44 +59,15 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-        setContentView(R.layout.activity_login_fb);
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-
-        callbackManager = CallbackManager.Factory.create();
-
-        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // App code
-            }
-
-            @Override
-            public void onCancel() {
-                // App code
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                // App code
-            }
-        });
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-
-        setContentView(R.layout.activity_dashboard);
-        Button startgameButton = (Button) findViewById(R.id.startgame_button);
+        Button levelonecompleteButton = (Button) findViewById(R.id.levelonecomplete_button);
+        setContentView(R.layout.activity_levelone);
 
     }
 
-    public void startGame (View view)
+    public void startLevelTwo (View view)
     {
-        Intent intent = new Intent(MainActivity.this, GameActivity.class);
-        startActivity(intent);
+        Button leveltwocompleteButton = (Button) findViewById(R.id.leveltwocomplete_button);
+        setContentView(R.layout.activity_leveltwo);
     }
+
 }
