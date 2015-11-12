@@ -56,23 +56,33 @@ public class SplashActivity extends FragmentActivity {
 
     CallbackManager callbackManager;
     AccessTokenTracker accessTokenTracker;
+    AccessToken accessToken;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(this.getApplicationContext());
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+
         setContentView(R.layout.activity_splash);
 
         accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+
                 fetchUserInfo();
-               // updateUI();
+                // updateUI();
             }
+
+
         };
-        callbackManager = CallbackManager.Factory.create();
+        accessToken = AccessToken.getCurrentAccessToken();
+        //String newaccessToken = "3";
 
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -87,17 +97,19 @@ public class SplashActivity extends FragmentActivity {
         accessTokenTracker.stopTracking();
     }
 
+
     private void fetchUserInfo() {
         final AccessToken accessToken = AccessToken.getCurrentAccessToken();
         if (accessToken != null) {
 
-            Intent intent1 = new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent1);
-
-        } else {
             Intent intent2 = new Intent(SplashActivity.this, DashboardActivity.class);
             startActivity(intent2);
-        }
+
+        } else {
+
+            Intent intent1 = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(intent1);
+    }
     }
 
     }

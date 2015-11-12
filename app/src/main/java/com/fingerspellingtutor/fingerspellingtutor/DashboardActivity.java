@@ -54,13 +54,15 @@ public class DashboardActivity extends FragmentActivity {
 
     CallbackManager callbackManager;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-        Button levelonecompleteButton = (Button) findViewById(R.id.levelonecomplete_button);
-        setContentView(R.layout.activity_levelone);
+        Button startgameButton = (Button) findViewById(R.id.startgame_button);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        setContentView(R.layout.activity_dashboard);
 
     }
 
