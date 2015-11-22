@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,8 +53,9 @@ import java.util.List;
 
 public class DashboardActivity extends FragmentActivity {
 
-    CallbackManager callbackManager;
+    private static final String TAG = "DashboardActivity: ";
 
+    CallbackManager callbackManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,9 +65,11 @@ public class DashboardActivity extends FragmentActivity {
         Button startgameButton = (Button) findViewById(R.id.startgame_button);
         Button logoutButton = (Button) findViewById(R.id.logout_button);
         setContentView(R.layout.activity_dashboard);
+        Log.d(TAG, "Content View is set");
 
     }
 
+    //logout when click logout button
     public void customLogOut (View view)
     {
         LoginManager.getInstance().logOut();
@@ -73,10 +77,11 @@ public class DashboardActivity extends FragmentActivity {
         startActivity(intent);
     }
 
-    public void startLevelTwo (View view)
+    public void startGame (View view)
     {
-        Button leveltwocompleteButton = (Button) findViewById(R.id.leveltwocomplete_button);
-        setContentView(R.layout.activity_leveltwo);
+        Log.d(TAG, "sartGame is hit");
+        Intent intent = new Intent(DashboardActivity.this, GameActivity.class);
+        startActivity(intent);
     }
 
 }
