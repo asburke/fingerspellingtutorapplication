@@ -52,6 +52,7 @@ import java.util.List;
 
 public class GameActivity extends FragmentActivity {
 
+    private static final String TAG = "GameActivity: ";
     CallbackManager callbackManager;
 
     @Override
@@ -60,14 +61,23 @@ public class GameActivity extends FragmentActivity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
         Button levelonecompleteButton = (Button) findViewById(R.id.levelonecomplete_button);
+        Button logoutButton = (Button) findViewById(R.id.logout_button);
         setContentView(R.layout.activity_levelone);
-
     }
 
     public void startLevelTwo (View view)
     {
         Button leveltwocompleteButton = (Button) findViewById(R.id.leveltwocomplete_button);
+        Button logoutButton = (Button) findViewById(R.id.logout_button);
         setContentView(R.layout.activity_leveltwo);
+    }
+
+    //logout when click logout button
+    public void customLogOut (View view)
+    {
+        LoginManager.getInstance().logOut();
+        Intent intent = new Intent(GameActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
 }

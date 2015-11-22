@@ -15,4 +15,10 @@
         android:textStyle="bold"
         android:onClick="startLevelThree"/>
 
+    <Button android:id="@+id/logout_button" style="?android:textAppearanceSmall"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" android:text="@string/logout_button"
+        android:textStyle="bold"
+        android:onClick="customLogOut"/>
+
 </LinearLayout>

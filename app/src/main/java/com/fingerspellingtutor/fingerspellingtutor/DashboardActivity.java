@@ -1,4 +1,5 @@
 
+
 package com.fingerspellingtutor.fingerspellingtutor;
 
 import android.animation.Animator;
@@ -19,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,10 +45,15 @@ import java.util.List;
 //import butterknife.Bind;
 //import butterknife.ButterKnife;
 
+
+
 /**
  * Created by alyssaburke on 10/8/15.
  */
-public class MainActivity extends FragmentActivity {
+
+public class DashboardActivity extends FragmentActivity {
+
+    private static final String TAG = "DashboardActivity: ";
 
     CallbackManager callbackManager;
 
@@ -55,44 +62,26 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-        setContentView(R.layout.activity_login_fb);
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        Button startgameButton = (Button) findViewById(R.id.startgame_button);
+        Button logoutButton = (Button) findViewById(R.id.logout_button);
+        setContentView(R.layout.activity_dashboard);
+        Log.d(TAG, "Content View is set");
 
-        callbackManager = CallbackManager.Factory.create();
-
-        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // App code
-            }
-
-            @Override
-            public void onCancel() {
-                // App code
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                // App code
-            }
-        });
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-
-        setContentView(R.layout.activity_dashboard);
-        Button startgameButton = (Button) findViewById(R.id.startgame_button);
-
+    //logout when click logout button
+    public void customLogOut (View view)
+    {
+        LoginManager.getInstance().logOut();
+        Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     public void startGame (View view)
     {
-        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+        Log.d(TAG, "sartGame is hit");
+        Intent intent = new Intent(DashboardActivity.this, GameActivity.class);
         startActivity(intent);
     }
+
 }
