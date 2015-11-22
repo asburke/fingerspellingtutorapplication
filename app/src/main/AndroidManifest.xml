@@ -28,14 +28,9 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:label="@string/app_name">
 
-        <provider android:authorities="com.facebook.app.FacebookContentProvider1494882037475146"
-            android:name="com.facebook.FacebookContentProvider"
-            android:exported="true" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/app_id" />
         </activity>
+
+
 
 
         <activity
@@ -51,6 +46,25 @@
             android:name=".LoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
+
+        <activity
+            android:name=".TestActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+
+<!--            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+
+        </activity>
+
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1494882037475146"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
 
 
     </application>

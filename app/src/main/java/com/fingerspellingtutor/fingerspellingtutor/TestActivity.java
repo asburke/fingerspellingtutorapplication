@@ -54,9 +54,9 @@ import android.os.Handler;
  * Created by alyssaburke on 10/8/15.
  */
 
-public class SplashActivity extends FragmentActivity {
+public class TestActivity extends FragmentActivity {
 
-    private static final String TAG = "SplashActivity: ";
+    private static final String TAG = "TestActivity: ";
 
     CallbackManager callbackManager;
     AccessTokenTracker accessTokenTracker;
@@ -69,37 +69,15 @@ public class SplashActivity extends FragmentActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
+
         Log.d(TAG, "test log is working");
 
         setContentView(R.layout.activity_splash);
 
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-
-                Log.d(TAG, "Token is changed is hit");
-
-            }
-        };
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                accessToken = AccessToken.getCurrentAccessToken();
-                isUserLoggedIn();
-                Log.d(TAG, "isUserLoggedIn() is called");
-                finish();
-            }
-        }, 1500);
+        accessToken = AccessToken.getCurrentAccessToken();
+        isUserLoggedIn();
+        Log.d(TAG, "isUserLoggedIn() is called");
     }
-
-
-/*    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult() is called");
-    }*/
 
 
     @Override
@@ -110,7 +88,6 @@ public class SplashActivity extends FragmentActivity {
     }
 
 
-
     private void isUserLoggedIn() {
 
         Log.d(TAG, "in isUserLoggedIn()");
@@ -119,20 +96,50 @@ public class SplashActivity extends FragmentActivity {
 
             Log.d(TAG, "accessToken is NOT null");
 
-            Intent intent = new Intent(SplashActivity.this, DashboardActivity.class);
-            startActivity(intent);
+            setContentView(R.layout.activity_dashboard);
 
 
         } else {
 
             Log.d(TAG, "accessToken is null");
 
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
+            LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+            setContentView(R.layout.activity_login_fb);
+
+            LoginManager.getInstance().registerCallback(callbackManager,
+                    new FacebookCallback<LoginResult>() {
+                        @Override
+                        public void onSuccess(LoginResult loginResult) {
+                            // App code
+                        }
+
+                        @Override
+                        public void onCancel() {
+                            // App code
+                        }
+
+                        @Override
+                        public void onError(FacebookException exception) {
+                            // App code
+                        }
+
+                    });
+
 
             Log.d(TAG, "change activity to Login");
-    }
+        }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        Button startgameButton = (Button) findViewById(R.id.startgame_button);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        setContentView(R.layout.activity_dashboard);
     }
+
+
+}
 

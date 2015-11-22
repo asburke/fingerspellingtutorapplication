@@ -19,6 +19,7 @@
     <string name="start_game_button">start game</string>
     <string name="level_one_complete_button">Complete Level 1</string>
     <string name="level_two_complete_button">Complete Level Two</string>
+    <string name="logout_button">Logout</string>
 
     <!--Splash Page -->
     <string name="loading_text">Loading...</string>

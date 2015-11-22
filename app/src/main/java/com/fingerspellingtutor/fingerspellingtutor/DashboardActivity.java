@@ -61,9 +61,16 @@ public class DashboardActivity extends FragmentActivity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
         Button startgameButton = (Button) findViewById(R.id.startgame_button);
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        Button logoutButton = (Button) findViewById(R.id.logout_button);
         setContentView(R.layout.activity_dashboard);
 
+    }
+
+    public void customLogOut (View view)
+    {
+        LoginManager.getInstance().logOut();
+        Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     public void startLevelTwo (View view)
