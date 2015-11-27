@@ -42,9 +42,6 @@ import com.facebook.login.widget.LoginButton;
 import java.util.ArrayList;
 import java.util.List;
 
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
-
 
 
 /**

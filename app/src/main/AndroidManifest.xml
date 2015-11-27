@@ -3,7 +3,7 @@
     package="com.fingerspellingtutor.fingerspellingtutor">
 
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <!-- Facebook Permissions -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -14,7 +14,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppBaseTheme">
 
         <activity
             android:name=".DashboardActivity"
@@ -50,17 +50,6 @@
         <activity
             android:name=".GameActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-
-        <activity
-            android:name=".TestActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-
-<!--            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-
         </activity>
 
         <provider android:authorities="com.facebook.app.FacebookContentProvider1494882037475146"

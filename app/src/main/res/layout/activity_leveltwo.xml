@@ -4,21 +4,26 @@
     android:layout_height="match_parent"
     android:background="#FFF"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <Button
         android:id="@+id/leveltwocomplete_button" style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:text="@string/level_two_complete_button"
         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@color/primary"
         android:onClick="startLevelThree"/>
 
     <Button android:id="@+id/logout_button" style="?android:textAppearanceSmall"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:layout_height="60dp"
         android:layout_marginTop="16dp" android:text="@string/logout_button"
         android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:background="@null"
         android:onClick="customLogOut"/>
 
 </LinearLayout>
