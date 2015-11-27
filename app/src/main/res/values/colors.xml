@@ -13,6 +13,11 @@
     <item name="darkred" type="color">#FFCC0000</item>
     <item name="white" type="color">#FFFFFF</item>
     <item name="black" type="color">#000000</item>
+    <item name="fbblue" type="color">#3b5998</item>
+
+
+
+    <item name="primary" type="color">#008080</item>
 
     <integer-array name="androidcolors">
         <item>@color/blue</item>
@@ -26,6 +31,9 @@
         <item>@color/darkorange</item>
         <item>@color/white</item>
         <item>@color/black</item>
+        <item>@color/primary</item>
+        <item>@color/fbblue</item>
+
     </integer-array>
 
 </resources> 

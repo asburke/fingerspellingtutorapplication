@@ -17,8 +17,6 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
 
 /**
  * Created by aburke on 11/10/15.

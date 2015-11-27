@@ -41,8 +41,6 @@ import com.facebook.login.widget.LoginButton;
 import java.util.ArrayList;
 import java.util.List;
 
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
 
 
 
@@ -52,9 +50,11 @@ import java.util.List;
 
 public class GameActivity extends FragmentActivity {
 
+    //Use to debug; look in logcat
     private static final String TAG = "GameActivity: ";
     CallbackManager callbackManager;
 
+    //when you tap on "Complete Level 1," it takes the user to Level Two Screen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +65,7 @@ public class GameActivity extends FragmentActivity {
         setContentView(R.layout.activity_levelone);
     }
 
+    //when you tap on "Complete Level 1," it takes the user to Level Two Screen
     public void startLevelTwo (View view)
     {
         Button leveltwocompleteButton = (Button) findViewById(R.id.leveltwocomplete_button);

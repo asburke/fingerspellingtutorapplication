@@ -45,8 +45,6 @@ import java.util.ArrayList;
 import java.util.List;
 import android.os.Handler;
 
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
 
 
 
@@ -82,6 +80,7 @@ public class SplashActivity extends FragmentActivity {
             }
         };
 
+        //Creates a "wait" so that the use sees the "loading screen" since it checks if a user is logged in or not very quickly
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -94,22 +93,12 @@ public class SplashActivity extends FragmentActivity {
     }
 
 
-/*    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult() is called");
-    }*/
-
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         accessTokenTracker.stopTracking();
         Log.d(TAG, "onDestroy() is called");
     }
-
-
 
     private void isUserLoggedIn() {
 
